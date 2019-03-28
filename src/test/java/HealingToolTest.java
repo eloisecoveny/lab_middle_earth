@@ -1,5 +1,5 @@
-import characters.HealingTool;
-import characters.HealingToolType;
+import Merchandise.HealingTool;
+import Merchandise.HealingToolType;
 import org.junit.Before;
 import org.junit.Test;
 

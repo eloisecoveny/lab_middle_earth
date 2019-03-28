@@ -1,5 +1,5 @@
-import characters.Creature;
-import characters.CreatureType;
+import Merchandise.Creature;
+import Merchandise.CreatureType;
 import org.junit.Before;
 import org.junit.Test;
 

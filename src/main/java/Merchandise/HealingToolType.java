@@ -1,4 +1,4 @@
-package characters;
+package Merchandise;
 
 public enum HealingToolType {
     MANDRAKE( 0.5,0),

@@ -1,11 +1,12 @@
-package characters;
+package Merchandise;
 
-public class HealingTool {
+public class HealingTool extends Merchandise {
 
     private int stockLevel;
     private HealingToolType type;
 
     public HealingTool(HealingToolType type){
+        super(type.getPrice());
         this.stockLevel = 100;
         this.type = type;
     }
@@ -28,7 +29,4 @@ public class HealingTool {
         return this.type.getEffectiveness();
     }
 
-    public int getPrice(){
-        return this.type.getPrice();
-    }
 }

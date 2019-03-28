@@ -1,11 +1,12 @@
-package characters;
+package Merchandise;
 
-public class Creature {
+public class Creature extends Merchandise {
 
     private double healthPoints;
     private CreatureType type;
 
     public Creature(CreatureType type){
+        super(type.getPrice());
         this.healthPoints = 100;
         this.type = type;
     }
@@ -16,10 +17,6 @@ public class Creature {
 
     public int getDefenceStrength(){
         return this.type.getDefenceStrength();
-    }
-
-    public int getPrice(){
-        return this.type.getPrice();
     }
 
     public double getHealthPoints(){
