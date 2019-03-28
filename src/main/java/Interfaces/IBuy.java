@@ -1,4 +1,4 @@
-// will be implemented by the Player class
+// TODO finish this when we have a player class.
 package Interfaces;
 
 import Merchandise.Merchandise;

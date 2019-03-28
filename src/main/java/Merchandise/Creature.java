@@ -1,6 +1,8 @@
 package Merchandise;
 
-public class Creature extends Merchandise {
+import Interfaces.IProtect;
+
+public class Creature extends Merchandise implements IProtect {
 
     private double healthPoints;
     private CreatureType type;
@@ -23,9 +25,14 @@ public class Creature extends Merchandise {
         return healthPoints;
     }
 
-    public void calculateHealthPoints(double attackStrength){
+    public double defend(int attackStrength){
         double damage = ((100.00 - this.getDefenceStrength()) / 100.00) * attackStrength;
-        this.healthPoints -= damage;
+        if(this.healthPoints >= damage){
+            this.healthPoints -= damage;
+            return 0.0;
+        } else {
+            return damage - this.healthPoints;
+        }
     }
 
 

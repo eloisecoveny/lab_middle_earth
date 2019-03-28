@@ -1,8 +1,9 @@
 package characters;
 
+import Interfaces.IFight;
 import Merchandise.Weapon;
 
-public class Warrior extends Character{
+public class Warrior extends Character implements IFight {
 
     private Weapon weapon;
 
@@ -21,5 +22,9 @@ public class Warrior extends Character{
 
     public int getAttackStrength(){
         return this.weapon.getAttackStrength();
+    }
+
+    public int attack(){
+        return this.getAttackStrength();
     }
 }
