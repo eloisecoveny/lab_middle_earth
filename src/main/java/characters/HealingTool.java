@@ -14,11 +14,21 @@ public class HealingTool {
         return stockLevel;
     }
 
-    public void setStockLevel(int stockLevel) {
-        this.stockLevel = stockLevel;
+    public void reduceStockLevel(int usedAmount) {
+        if(this.stockLevel >= usedAmount) {
+            this.stockLevel -= usedAmount;
+        }
     }
 
     public HealingToolType getType() {
         return type;
+    }
+
+    public double getEffectiveness(){
+        return this.type.getEffectiveness();
+    }
+
+    public int getPrice(){
+        return this.type.getPrice();
     }
 }
