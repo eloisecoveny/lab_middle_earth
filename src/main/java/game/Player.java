@@ -46,6 +46,11 @@ public class Player implements IBuy {
 
     public boolean enoughFunds(Merchandise merchandise){
         return merchandise.getPrice() <= this.purse;
+    }
 
+    public int isRobbed(){
+        int loot = this.purse;
+        this.purse = 0;
+        return loot;
     }
 }
