@@ -19,10 +19,6 @@ public class Healer extends Character implements IHeal, IProtect {
         return defenceStrength;
     }
 
-    public void setDefenceStrength(int defenceStrength) {
-        this.defenceStrength = defenceStrength;
-    }
-
     public HealingTool getHealingToool() {
         return healingToool;
     }
@@ -45,7 +41,7 @@ public class Healer extends Character implements IHeal, IProtect {
         return 0.0;
     }
 
-    public int heal(java.lang.Character character, int quantity) {
+    public int heal(Character character, int quantity) {
         //returns health points that will be added to the player's health.
         //the number of health points will depend on the strength and quantity of healing potion applied.
         return 0;
