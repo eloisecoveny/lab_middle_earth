@@ -27,7 +27,7 @@ public class CreatureTest {
 
     @Test
     public void canCalculateHealthPoints(){
-        creature.calculateHealthPoints(10);
+        creature.defend(10);
         assertEquals(93, creature.getHealthPoints(), 0.01);
     }
 
