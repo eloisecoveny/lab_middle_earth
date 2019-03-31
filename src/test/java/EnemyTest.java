@@ -35,12 +35,17 @@ public class EnemyTest {
 
     @Test
     public void hasLootValue(){
-        assertEquals(3, enemy.getLootValue());
+        assertEquals(3, enemy.getLoot());
     }
 
     @Test
     public void startsWithFullHealth(){
         assertEquals(100, enemy.getHealth());
+    }
+
+    @Test
+    public void isAlive(){
+        assertEquals(true, enemy.isAlive());
     }
 }
 

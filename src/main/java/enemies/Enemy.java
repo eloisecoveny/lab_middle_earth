@@ -1,9 +1,11 @@
 package enemies;
 
 
+import Interfaces.IDwell;
 import Merchandise.Merchandise;
 
-public class Enemy {
+
+public class Enemy implements IDwell {
     private EnemyType type;
     private Merchandise attackTool;
     private int health;
@@ -13,7 +15,6 @@ public class Enemy {
         this.type = type;
         this.attackTool = attackTool;
         this.lootValue = lootValue;
-
         this.health = 100;
     }
 
@@ -29,7 +30,13 @@ public class Enemy {
         return health;
     }
 
-    public int getLootValue() {
+    public int getLoot() {
         return lootValue;
     }
+
+    public boolean isAlive(){
+        return this.health > 0;
+    }
+
+
 }
