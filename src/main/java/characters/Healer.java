@@ -4,14 +4,14 @@ import Interfaces.IHeal;
 import Interfaces.IProtect;
 import Merchandise.HealingTool;
 
-public class Healer extends Character implements IHeal, IProtect {
+public class Healer extends Character implements IHeal {
 
     private int defenceStrength;
-    private HealingTool healingToool;
+    private HealingTool healingTool;
 
     public Healer(String name, CharacterType type, HealingTool healingTool) {
         super(name, type);
-        this.healingToool = healingTool;
+        this.healingTool = healingTool;
         this.defenceStrength = 10;
     }
 
@@ -20,30 +20,42 @@ public class Healer extends Character implements IHeal, IProtect {
     }
 
     public HealingTool getHealingToool() {
-        return healingToool;
+        return healingTool;
     }
 
     public void setHealingTool(HealingTool healingToool) {
-        this.healingToool = healingToool;
+        this.healingTool = healingToool;
     }
 
     public double getHealingToolEffectiveness(){
-        return this.healingToool.getEffectiveness();
+        return this.healingTool.getEffectiveness();
     }
 
     public int getHealingToolStockLevel(){
-        return this.healingToool.getStockLevel();
+        return this.healingTool.getStockLevel();
     }
 
-    public double defend(int attackStrength){
-        //if we use Creature as a model, it means that either we need access to the Player's health points
-        //a way around it would be to give the healer 110 health points by default, instead of 100.
-        return 0.0;
-    }
-
+    //TODO the returned health Points must be added to the player associated to that character.
     public int heal(Character character, int quantity) {
-        //returns health points that will be added to the player's health.
-        //the number of health points will depend on the strength and quantity of healing potion applied.
-        return 0;
+        int currentStockLevel = this.healingTool.getStockLevel();
+
+        if(currentStockLevel == 0){
+            //no healingTool stocks left
+            return 0;
+
+        } else if (currentStockLevel < quantity ) {
+            //we can't apply as much as was requested
+            this.healingTool.reduceStockLevel(currentStockLevel);
+            return (int) (this.healingTool.getType().getEffectiveness() * currentStockLevel);
+
+        } else {
+            //reduce healingTool stock level
+            this.healingTool.reduceStockLevel(quantity);
+
+            //return health points that will be added to the player's health.
+            //the number of health points will depend on the strength and quantity of healing potion applied
+            return (int) (this.healingTool.getType().getEffectiveness() * quantity);
+
+        }
     }
 }

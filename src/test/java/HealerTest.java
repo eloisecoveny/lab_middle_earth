@@ -33,12 +33,18 @@ public class HealerTest {
 
     @Test
     public void canHeal(){
-        assertEquals( 0, healer.heal(warrior, 50));
+        assertEquals( 25, healer.heal(warrior, 50));
     }
 
     @Test
-    public void canProtect(){
-        assertEquals(0.0, healer.defend(20), 0.01);
+    public void canOnlyHealPartially(){
+        assertEquals( 50, healer.heal(warrior, 150));
+    }
+
+    @Test
+    public void cannotHealIfThereIsNoStock(){
+        healer.heal(warrior, 100);
+        assertEquals(0, healer.heal(warrior, 10));
     }
 
     @Test
